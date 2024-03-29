@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Parth Bhalerao</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+       
+        <button class="openbtn">&#187;</button>
+        <nav id = "sidenav" class="sidenav">
+            <ul>    
+                <li><a href="index.html" class="active">About Me</a></li>
+                <li><a href="research.html">Research Work</a></li>
+                <li><a href="projects.html">Personal Projects</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="work.html">Work Experience</a></li>
+                <li><a href="youtube.html">Youtube Channel</a></li>
+                <li><a href="dsacodes.html">DSA Codes</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="about-me">
+            <h1 style="font-style: italic; font-weight: bold; text-align: center;">About Me</h1>
+            <div class="about-me-section">
+                <a href="assets/pdf/ParthBhalerao-Resume.pdf" target="_blank" class="download-resume-button">Download Resume</a>
+            </div>
+            <div class="content">
+                <p>
+                    Hello! I'm Parth Bhalerao, a coding and software enthusiast with a keen <u>interest in roles spanning Software Engineering, Data Engineering, and Machine Learning & AI.</u>
+                <br><br>
+                Welcome to my corner of web !! and Buckle up for a ride through my journey so far!
+                <br><br>
+                Back in the day, I had the amazing opportunity to dive into research as a <u>Research Assistant at Shri Ramdeobaba College of Engineering and Management</u>, Nagpur. Working alongside brilliant professors, I soaked up knowledge like a sponge and managed to keep my GPA shining bright.
+                <br><br>
+                One of the most fulfilling gigs I've had? Being a <u>Mentor and part-time Faculty. Guiding eager students through Java Programming, Project Development, and the ins and outs of Data Structures and Algorithms</u> has been a blast. Seeing them light up with newfound knowledge? Priceless.
+                <br><br>
+                And hey, I'm not just about hitting the books. I've got some serious <u>research chops too</u>. My work has been published in some pretty cool places, like <u>Scopus-indexed journals</u>. Each paper I've penned has been a step forward in my quest to make a real impact in the field.
+                <br><br>
+                Now? I'm taking on a new challenge: a Master's in Computer Science at Santa Clara University. I'm stoked to dive into the latest tech and ideas, and maybe even shake things up a bit.
+                <br><br>
+                Speaking of shaking things up, I'm on the <u>lookout for internships in summer 2024</u>. I'm ready to roll up my sleeves and get hands-on with some real-world projects.
+                <br><br>
+                Lastly, enough about me. I'm all about connections. Whether you're a fellow enthusiast, a mentor, or someone with a killer idea, let's chat. Together, we can turn possibilities into reality.
+                <br><br>
+                Thanks for dropping by, and let's make some magic happen!
+                </p>
+                <img src="assets/images/profile-photo.jpg" alt="profile-photo" class="profile-photo">  
+            </div>
+        </section>
+    </main>
+    <footer>
+        <a href="https://github.com/pvbgeek" target="_blank"><img src="assets/images/github.gif" alt="GitHub"></a>
+        <a href="https://www.linkedin.com/in/parthvb/" target="_blank"><img src="assets/images/linkedin.png" alt="LinkedIn"></a>
+        <a href="mailto:pvbcod@gmail.com" target="_blank"><img src="assets/images/gmail.png" alt="Email"></a>
+        <a href="https://scholar.google.com/citations?hl=en&user=5YF9glAAAAAJ" target="_blank"><img src="assets/images/googlescholar.png" alt="Google-Scholar"></a>
+        <a href="https://www.youtube.com/@pvb-geek" target="_blank"><img src="assets/images/youtube.png" alt="YouTube"></a>
+        <a href="https://www.instagram.com/parth_vb/" target="_blank"><img src="assets/images/instagram.png" alt="Instagram"></a>
+        <a href="https://t.snapchat.com/dQJvpawO" target="_blank"><img src="assets/images/snapchat.png" alt="Snapchat"></a>
+    </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var openbtn = document.querySelector('.openbtn');
+    var sidenav = document.getElementById('sidenav');
+
+    function toggleNav() {
+        if (sidenav.style.width === "250px") {
+            sidenav.style.width = "0";
+            openbtn.innerHTML = '&#187;'; // Change the button to right-pointing arrow when closing
+        } else {
+            sidenav.style.width = "250px";
+            openbtn.innerHTML = '&#171;'; // Change the button to left-pointing arrow when opening
+        }
+    }
+
+    openbtn.addEventListener('click', function() {
+        toggleNav();
+    });
+
+    document.addEventListener('click', function(event) {
+        if (event.target !== openbtn && event.target !== sidenav && !sidenav.contains(event.target)) {
+            sidenav.style.width = "0";
+            openbtn.innerHTML = '&#187;'; // Ensure the button is set to right-pointing arrow when closing on click outside
+        }
+    });
+});
+ </script>
+</body>
+</html>

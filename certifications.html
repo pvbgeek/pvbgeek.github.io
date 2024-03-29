@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications - Parth Bhalerao</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <button class="openbtn">&#187;</button>
+        <nav id = "sidenav" class="sidenav">  
+            <ul>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="research.html">Research Work</a></li>
+                <li><a href="projects.html">Personal Projects</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="work.html">Work Experience</a></li>
+                <li><a href="youtube.html">Youtube Channel</a></li>
+                <li><a href="dsacodes.html">DSA Codes</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="certifications.html" class="active">Certifications</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="certifications">
+            <h2><em>My Learning Certifications and Achievements</em></h2>
+            
+            <!-- Certification Entry 1 -->
+            <div class="certification-entry">
+                <h3><u>Coursera : Software Engineering : Modeling Software Systems using UML</u></h3>
+                <img src="assets/images/ParthBhalerao-SE.jpg" alt="Certification" class="certification-image">
+            </div>
+
+            <!-- Certification Entry 2 -->
+            <div class="certification-entry">
+                <h3><u>Udemy : Amazon Web Services (AWS)</u></h3>
+                <img src="assets/images/ParthBhalerao-AWS.jpg" alt="Certification" class="certification-image">
+            </div>
+
+            <!-- Certification Entry 3 -->
+            <div class="certification-entry">
+                <h3><u>Coursera : HTML, CSS, and Javascript for Web Developers</u></h3>
+                <img src="assets/images/Parth-Bhalerao-WebD.jpg" alt="Certification" class="certification-image">
+            </div>
+
+             <!-- Certification Entry 4 -->
+             <div class="certification-entry">
+                <h3><u>Internshala Trainings : Data Structure & Algorithms</u></h3>
+                <img src="assets/images/ParthBhalerao-DSA-Training.jpg" alt="Certification" class="certification-image">
+            </div>
+
+            <!-- Certification Entry 5 -->
+            <div class="certification-entry">
+                <h3><u>Coursera : Operating Systems and you : Becoming a Power User</u></h3>
+                <img src="assets/images/ParthBhalerao-OS.jpg" alt="Certification" class="certification-image">
+            </div>
+
+            <!-- Certification Entry 6 -->
+            <div class="certification-entry">
+                <h3><u>Udemy : TensorFlow Developer - Zero to Mastery</u></h3>
+                <img src="assets/images/ParthBhalerao-TensorFlowCertification.jpg" alt="Certification" class="certification-image">
+            </div>
+
+            <!-- Certification Entry 7 -->
+            <div class="certification-entry">
+                <h3><u>Udemy : Java Programming</u></h3>
+                <img src="assets/images/ParthBhalerao-Java.jpg" alt="Certification" class="certification-image">
+            </div>
+
+            <!-- Certification Entry 8 -->
+            <div class="certification-entry">
+                <h3><u>Udemy : Python Programming</u></h3>
+                <img src="assets/images/ParthBhalerao-Python.jpg" alt="Certification" class="certification-image">
+            </div>
+
+             <!-- Certification Entry 8 -->
+             <div class="certification-entry">
+                <h3><u>Udemy : C++ Programming</u></h3>
+                <img src="assets/images/ParthBhalerao-C++.jpg" alt="Certification" class="certification-image">
+            </div>
+            
+
+        </section>
+    </main>
+    <footer>
+        <a href="https://github.com/pvbgeek" target="_blank"><img src="assets/images/github.gif" alt="GitHub"></a>
+        <a href="https://www.linkedin.com/in/parthvb/" target="_blank"><img src="assets/images/linkedin.png" alt="LinkedIn"></a>
+        <a href="mailto:pvbcod@gmail.com" target="_blank"><img src="assets/images/gmail.png" alt="Email"></a>
+        <a href="https://scholar.google.com/citations?hl=en&user=5YF9glAAAAAJ" target="_blank"><img src="assets/images/googlescholar.png" alt="Google-Scholar"></a>
+        <a href="https://www.youtube.com/@pvb-geek" target="_blank"><img src="assets/images/youtube.png" alt="YouTube"></a>
+        <a href="https://www.instagram.com/parth_vb/" target="_blank"><img src="assets/images/instagram.png" alt="Instagram"></a>
+        <a href="https://t.snapchat.com/dQJvpawO" target="_blank"><img src="assets/images/snapchat.png" alt="Snapchat"></a>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var openbtn = document.querySelector('.openbtn');
+            var sidenav = document.getElementById('sidenav');
+        
+            function toggleNav() {
+                if (sidenav.style.width === "250px") {
+                    sidenav.style.width = "0";
+                    openbtn.innerHTML = '&#187;'; // Change the button to right-pointing arrow when closing
+                } else {
+                    sidenav.style.width = "250px";
+                    openbtn.innerHTML = '&#171;'; // Change the button to left-pointing arrow when opening
+                }
+            }
+        
+            openbtn.addEventListener('click', function() {
+                toggleNav();
+            });
+        
+            document.addEventListener('click', function(event) {
+                if (event.target !== openbtn && event.target !== sidenav && !sidenav.contains(event.target)) {
+                    sidenav.style.width = "0";
+                    openbtn.innerHTML = '&#187;'; // Ensure the button is set to right-pointing arrow when closing on click outside
+                }
+            });
+        });
+         </script>
+</body>
+</html>
