@@ -454,6 +454,32 @@ footer p {
   .edu-item { grid-template-columns: 92px 24px 1fr; }
   .edu-year { font-size: .95rem; }
   .edu-logo { width: 40px; height: 40px; }
+  /* Mobile: compact timeline cards */
+  .edu-item,
+  .exp-item {
+    grid-template-columns: 1fr;   /* single column */
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .edu-year,
+  .exp-year {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .edu-logo,
+  .exp-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .edu-card,
+  .exp-card {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
 }
 
 /* Experience timeline (reuses the visual language) */
@@ -476,8 +502,8 @@ footer p {
 .exp-links { margin-top: .6rem; }
 
 @media (max-width: 740px) {
-  .exp-item { grid-template-columns: 110px 24px 1fr; }
-  .exp-logo { width: 40px; height: 40px; }
+  .exp-item { grid-template-columns: 1fr !important; }
+  .exp-logo { width: 32px; height: 32px; }
 }
 
 /* Youtube Html styling*/
