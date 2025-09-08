@@ -135,17 +135,25 @@ header {
 /* Responsive */
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
     flex-direction: column;
-    background: #333;
     position: absolute;
     top: 70px;
     right: 0;
     width: 200px;
+
+    /* light background */
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    /* slide-down animation */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
   }
-  .nav-links.active {
-    display: flex;
-  }
+  
+  .nav-links.active { max-height: 600px; }  /* shows the menu */
+
+  .nav-links li a { color: #1d2671; }
   .hamburger {
     display: block;
   }
