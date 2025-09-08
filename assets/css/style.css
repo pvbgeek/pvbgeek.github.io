@@ -35,6 +35,14 @@ body::before {
   }
 }
 
+/* Media Query for Resume Button */
+@media (max-width: 768px) {
+  .resume-fab {
+    position: static;   /* remove fixed on mobile */
+    margin: 1rem auto;  /* keep it centered with some spacing */
+    transform: none;    /* no manual centering needed */
+  }
+}
 
 
 /* Page layout: header at top, footer at bottom */
