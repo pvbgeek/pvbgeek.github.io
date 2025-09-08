@@ -480,6 +480,14 @@ footer p {
     font-size: 0.95rem;
     line-height: 1.4;
   }
+
+  .edu-card,
+.exp-card {
+  max-height: 250px;      /* limit height */
+  overflow-x: auto;       /* allow horizontal scroll if needed */
+  overflow-y: auto;       /* allow vertical scroll */
+  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+  }
 }
 
 /* Experience timeline (reuses the visual language) */
