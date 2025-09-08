@@ -149,6 +149,8 @@ header {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
+
+    z-index: 1001;
   }
   
   .nav-links.active { max-height: 600px; }  /* shows the menu */
