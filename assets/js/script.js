@@ -26,35 +26,6 @@
   };
 
   const progress = makeLayer('scroll-progress');
-  const cursorGlow = makeLayer('cursor-glow');
-
-  if (finePointer && !reduceMotion) {
-    const cursor = makeLayer('custom-cursor', 'custom-cursor');
-    const ring = makeLayer('custom-cursor-ring', 'custom-cursor-ring');
-    let mx = innerWidth / 2, my = innerHeight / 2;
-    let rx = mx, ry = my;
-
-    window.addEventListener('mousemove', (e) => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
-      cursorGlow.style.left = `${mx}px`;
-      cursorGlow.style.top = `${my}px`;
-      cursorGlow.style.opacity = '1';
-    }, { passive: true });
-
-    const animateCursor = () => {
-      rx += (mx - rx) * .17;
-      ry += (my - ry) * .17;
-      ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
-      requestAnimationFrame(animateCursor);
-    };
-    animateCursor();
-
-    doc.querySelectorAll('a, button, .research-card, .edu-card, .exp-card, .cert-item').forEach(el => {
-      el.addEventListener('mouseenter', () => body.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave', () => body.classList.remove('cursor-hover'));
-    });
-  }
 
   // ---------- Navigation ----------
   const hamburger = doc.querySelector('.hamburger');
@@ -159,33 +130,7 @@
     });
   }
 
-  // ---------- Pointer-reactive cards ----------
-  if (finePointer && !reduceMotion) {
-    const reactive = doc.querySelectorAll('.research-card, .edu-card, .exp-card');
-    reactive.forEach(card => {
-      card.addEventListener('pointermove', (e) => {
-        const r = card.getBoundingClientRect();
-        const x = e.clientX - r.left;
-        const y = e.clientY - r.top;
-        const px = (x / r.width) * 100;
-        const py = (y / r.height) * 100;
-        card.style.setProperty('--mx', `${px}%`);
-        card.style.setProperty('--my', `${py}%`);
-        if (card.classList.contains('research-card')) {
-          const ry = ((x / r.width) - .5) * 5.5;
-          const rx = (.5 - (y / r.height)) * 4.5;
-          card.style.setProperty('--rx', `${rx.toFixed(2)}deg`);
-          card.style.setProperty('--ry', `${ry.toFixed(2)}deg`);
-        }
-      });
-      card.addEventListener('pointerleave', () => {
-        card.style.setProperty('--mx', '50%');
-        card.style.setProperty('--my', '50%');
-        card.style.setProperty('--rx', '0deg');
-        card.style.setProperty('--ry', '0deg');
-      });
-    });
-  }
+  // ---------- Lightweight hover effects are handled in CSS ----------
 
   // ---------- Blog accordion ----------
   doc.querySelectorAll('.blog-header').forEach(header => {
@@ -255,7 +200,6 @@
     const ctx = canvas.getContext('2d', { alpha: true });
     let w = 0, h = 0, dpr = 1;
     let points = [];
-    const pointer = { x: .5, y: .5, tx: .5, ty: .5 };
 
     const countForScreen = () => {
       if (innerWidth < 600) return 24;
@@ -288,8 +232,8 @@
       const fov = Math.max(430, Math.min(760, w * .58));
       const scale = fov / (fov + p.z);
       return {
-        x: w * .5 + p.x * scale + (pointer.x - .5) * -34 * scale,
-        y: h * .48 + p.y * scale + (pointer.y - .5) * -24 * scale,
+        x: w * .5 + p.x * scale,
+        y: h * .48 + p.y * scale,
         scale,
         a: Math.max(.06, Math.min(.55, .6 - p.z / 1800))
       };
@@ -298,8 +242,6 @@
     let last = performance.now();
     const draw = (now) => {
       const dt = Math.min(32, now - last); last = now;
-      pointer.x += (pointer.tx - pointer.x) * .035;
-      pointer.y += (pointer.ty - pointer.y) * .035;
       ctx.clearRect(0, 0, w, h);
 
       const projected = [];
@@ -339,15 +281,6 @@
       requestAnimationFrame(draw);
     };
 
-    window.addEventListener('mousemove', e => {
-      pointer.tx = e.clientX / Math.max(1, w);
-      pointer.ty = e.clientY / Math.max(1, h);
-    }, { passive: true });
-    window.addEventListener('touchmove', e => {
-      const t = e.touches[0]; if (!t) return;
-      pointer.tx = t.clientX / Math.max(1, w);
-      pointer.ty = t.clientY / Math.max(1, h);
-    }, { passive: true });
     window.addEventListener('resize', resize, { passive: true });
     resize();
     requestAnimationFrame(draw);

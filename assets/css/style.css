@@ -124,21 +124,6 @@ footer { flex: 0 0 auto; margin-top: auto; }
   opacity: .88;
 }
 
-#cursor-glow {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(40,224,147,.07) 0%, rgba(40,224,147,.025) 35%, transparent 70%);
-  filter: blur(4px);
-  opacity: 0;
-  transition: opacity .35s ease;
-}
 
 #scroll-progress {
   position: fixed;
@@ -154,42 +139,12 @@ footer { flex: 0 0 auto; margin-top: auto; }
   pointer-events: none;
 }
 
-.custom-cursor,
-.custom-cursor-ring {
-  display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  pointer-events: none;
-  z-index: 3000;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
 
-@media (pointer: fine) and (min-width: 900px) {
-  body, a, button { cursor: none !important; }
-  .custom-cursor {
-    display: block;
-    width: 7px;
-    height: 7px;
-    background: var(--white);
-    box-shadow: 0 0 14px rgba(57,230,156,.9);
-  }
-  .custom-cursor-ring {
-    display: block;
-    width: 34px;
-    height: 34px;
-    border: 1px solid rgba(57,230,156,.55);
-    background: rgba(57,230,156,.03);
-    transition: width .25s var(--ease-out), height .25s var(--ease-out), background .25s ease, border-color .25s ease;
-  }
-  body.cursor-hover .custom-cursor-ring {
-    width: 54px;
-    height: 54px;
-    background: rgba(57,230,156,.08);
-    border-color: rgba(57,230,156,.9);
-  }
-}
+
+/* Native browser cursor: no custom cursor or mouse-following effects. */
+html, body { cursor: auto; }
+a, button, [role="button"], .hamburger, .blog-header { cursor: pointer; }
+input, textarea { cursor: text; }
 
 /* ===== Navigation ===== */
 header {
@@ -522,7 +477,7 @@ body.scrolled .navbar {
 }
 
 .about-photo-shell:hover .about-img {
-  transform: translateY(-8px) rotateX(2deg) rotateY(-2deg) scale(1.015);
+  transform: translateY(-4px) scale(1.01);
   box-shadow: 0 34px 82px rgba(0,0,0,.52), 0 0 70px rgba(57,230,156,.13);
 }
 
@@ -652,10 +607,6 @@ body.scrolled .navbar {
 }
 
 .research-card {
-  --mx: 50%;
-  --my: 50%;
-  --rx: 0deg;
-  --ry: 0deg;
   counter-increment: research-card;
   position: relative;
   isolation: isolate;
@@ -668,7 +619,7 @@ body.scrolled .navbar {
   border-radius: var(--radius-lg);
   border: 1px solid rgba(184,255,223,.1);
   background:
-    radial-gradient(circle at var(--mx) var(--my), rgba(57,230,156,.105), transparent 34%),
+    radial-gradient(circle at 20% 0%, rgba(57,230,156,.075), transparent 34%),
     linear-gradient(145deg, rgba(12,36,27,.86), rgba(5,18,13,.82));
   box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255,255,255,.025);
   backdrop-filter: blur(16px) saturate(115%);
@@ -704,7 +655,7 @@ body.scrolled .navbar {
 
 @media (pointer: fine) {
   .research-card.is-visible:hover {
-    transform: perspective(1100px) translateY(-7px) rotateX(var(--rx)) rotateY(var(--ry));
+    transform: translateY(-5px);
     border-color: rgba(57,230,156,.28);
     box-shadow: 0 32px 74px rgba(0,0,0,.38), 0 0 0 1px rgba(57,230,156,.035) inset;
   }
@@ -765,7 +716,7 @@ body.scrolled .navbar {
   opacity: 1;
   transform: scale(1);
 }
-.research-card:hover .research-media img { transform: scale(1.025); }
+.research-card:hover .research-media img { transform: scale(1.012); }
 
 .research-meta {
   width: fit-content;
@@ -882,8 +833,6 @@ body.scrolled .navbar {
 
 .edu-card,
 .exp-card {
-  --mx: 50%;
-  --my: 50%;
   position: relative;
   min-width: 0;
   overflow: hidden;
@@ -891,7 +840,7 @@ body.scrolled .navbar {
   border-radius: var(--radius-lg);
   border: 1px solid rgba(184,255,223,.11);
   background:
-    radial-gradient(circle at var(--mx) var(--my), rgba(57,230,156,.085), transparent 38%),
+    radial-gradient(circle at 18% 0%, rgba(57,230,156,.06), transparent 38%),
     linear-gradient(145deg, rgba(11,34,25,.88), rgba(5,18,13,.84));
   box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255,255,255,.028);
   backdrop-filter: blur(16px);
@@ -1437,7 +1386,6 @@ footer p {
 
 @media (max-width: 760px) {
   body::before { background-size: 46px 46px; opacity: .18; }
-  #cursor-glow { display: none; }
   .content { padding: 44px 17px 74px; }
   .content > h1,
   .certs-title,
@@ -1583,9 +1531,6 @@ footer p {
     transition-duration: .001ms !important;
   }
   #ambient-canvas,
-  .custom-cursor,
-  .custom-cursor-ring,
-  #cursor-glow { display: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
 
